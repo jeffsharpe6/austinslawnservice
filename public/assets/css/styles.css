@@ -1,0 +1,227 @@
+:root{
+  --brand-green:#55805e;
+  --brand-green-dark:#496d51;
+  --brand-cream:#eaedea;
+  --text:#4d4d4d;
+  --white:#ffffff;
+  --max-width:1080px;
+  --shadow:0 12px 28px rgba(0,0,0,.12);
+  --radius:8px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Open Sans", Arial, sans-serif;
+  color:var(--text);
+  background:var(--brand-green);
+  line-height:1.7;
+}
+img,video{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.site-shell{background:var(--white); min-height:100vh}
+.topbar{
+  background:var(--brand-green);
+  color:var(--brand-cream);
+  border-bottom:1px solid var(--brand-green);
+}
+.topbar__inner,
+.container{
+  width:min(80%, var(--max-width));
+  margin:0 auto;
+}
+.topbar__inner{
+  padding:.45rem 0;
+  font-size:12px;
+  font-weight:700;
+  line-height:1.35;
+}
+.topbar__inner h1,
+.topbar__inner h2{
+  margin:0;
+  color:var(--brand-cream);
+  font-size:inherit;
+  font-weight:inherit;
+}
+.section{
+  padding:18px 0;
+}
+.section--green{
+  background:var(--brand-green);
+  color:var(--brand-cream);
+}
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5.5%;
+  align-items:center;
+}
+.hero-copy h1,
+.section-title{
+  margin:0 0 10px;
+  color:var(--brand-cream);
+  font-size:2rem;
+  line-height:1.1;
+  font-weight:700;
+}
+.hero-copy p{
+  margin:0 0 1rem;
+  font-size:18px;
+}
+.hero-copy ul{
+  margin:0 0 1rem 1.2rem;
+  padding:0;
+}
+.hero-copy li{margin:.2rem 0}
+.hero-media img,
+.video-wrap video,
+.privacy-card{
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.badge{
+  display:block;
+  margin:0 auto 10px;
+  max-width:192px;
+}
+.center-text{
+  text-align:center;
+}
+.center-text h2{
+  margin:0;
+  color:var(--brand-cream);
+  font-size:1.65rem;
+  font-weight:600;
+}
+.gallery-shell{
+  margin-top:18px;
+}
+.carousel{
+  position:relative;
+  overflow:hidden;
+}
+.carousel__viewport{
+  overflow:hidden;
+  border-radius:var(--radius);
+}
+.carousel__track{
+  display:flex;
+  transition:transform .35s ease;
+  will-change:transform;
+}
+.carousel__slide{
+  min-width:100%;
+  padding:0;
+}
+.carousel__slide img{
+  width:100%;
+  aspect-ratio:16 / 10;
+  object-fit:cover;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.carousel__button{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  border:none;
+  background:rgba(73,109,81,.9);
+  color:#fff;
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:1.45rem;
+  line-height:1;
+  box-shadow:var(--shadow);
+}
+.carousel__button:hover{background:rgba(73,109,81,1)}
+.carousel__button--prev{left:12px}
+.carousel__button--next{right:12px}
+.carousel__dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:14px;
+  flex-wrap:wrap;
+}
+.carousel__dot{
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  border:none;
+  background:rgba(234,237,234,.45);
+  cursor:pointer;
+}
+.carousel__dot.is-active{background:var(--brand-cream)}
+.video-wrap{
+  margin-top:20px;
+}
+.video-wrap video{
+  width:100%;
+  background:#000;
+}
+.footer{
+  background:var(--brand-green);
+  color:var(--brand-cream);
+  padding:14px 0;
+  text-align:center;
+  font-size:14px;
+}
+.footer a{
+  color:var(--brand-cream);
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+.privacy-main{
+  background:var(--brand-green);
+  padding:20px 0 28px;
+}
+.privacy-card{
+  background:var(--brand-green);
+  color:var(--brand-cream);
+  padding:24px;
+}
+.privacy-card h1{
+  color:var(--brand-cream);
+  font-size:2rem;
+  line-height:1.1;
+  margin:0 0 1rem;
+}
+.privacy-card h2{
+  color:var(--brand-cream);
+  font-size:1.25rem;
+  margin:1.5rem 0 .5rem;
+  font-weight:600;
+}
+.privacy-card p{
+  margin:.6rem 0 1rem;
+}
+.privacy-card a{
+  color:var(--brand-cream);
+  text-decoration:underline;
+}
+.privacy-card ul{
+  margin:0 0 1rem 1.25rem;
+}
+.inline-phone{
+  white-space:nowrap;
+}
+@media (max-width: 980px){
+  .topbar__inner,.container{width:min(92%, var(--max-width))}
+  .grid{grid-template-columns:1fr; gap:24px}
+  .hero-copy h1{font-size:1.8rem}
+  .hero-copy p{font-size:16px}
+  .center-text h2{font-size:1.45rem}
+}
+@media (max-width: 640px){
+  .topbar__inner{font-size:13px}
+  .hero-copy h1,.privacy-card h1{font-size:1.65rem}
+  .section{padding:12px 0}
+  .carousel__button{
+    width:38px;
+    height:38px;
+    font-size:1.2rem;
+  }
+}
