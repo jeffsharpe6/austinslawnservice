@@ -9,6 +9,22 @@
   --radius:8px;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -37,6 +53,7 @@ a{color:inherit}
   font-weight:700;
   line-height:1.35;
   text-align:center;
+  animation: fadeInUp 1s ease-out;
 }
 .topbar__inner h1,
 .topbar__inner h2{
@@ -48,8 +65,10 @@ a{color:inherit}
 .topbar__inner h1{
   font-size:2.5rem;
   margin-bottom:0.5rem;
+  animation: fadeInUp 1.2s ease-out 0.2s both;
 }
 .topbar__inner h2{
+  animation: fadeInUp 1.2s ease-out 0.4s both;
   font-size:1.5rem;
 }
 .section{
@@ -72,10 +91,13 @@ a{color:inherit}
   font-size:2rem;
   line-height:1.1;
   font-weight:700;
+  animation: fadeInUp 1.2s ease-out 0.6s both;
 }
 .hero-copy p{
   margin:0 0 1rem;
   font-size:18px;
+  animation: fadeInUp 1s ease-out 0.8s both;
+}
 }
 .hero-copy ul{
   margin:0 0 1rem 1.2rem;
@@ -87,11 +109,21 @@ a{color:inherit}
 .privacy-card{
   border-radius:var(--radius);
   box-shadow:var(--shadow);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.hero-media img:hover,
+.video-wrap video:hover{
+  box-shadow: 0 16px 32px rgba(0,0,0,.15);
+  transform: translateY(-2px);
 }
 .badge{
   display:block;
   margin:0 auto 10px;
   max-width:192px;
+  transition: transform 0.3s ease;
+}
+.badge:hover{
+  transform: scale(1.05);
 }
 .center-text{
   text-align:center;
@@ -126,6 +158,11 @@ a{color:inherit}
 }
 .carousel__slide img{
   width:100%;
+  transition: transform 0.3s ease;
+}
+.carousel__slide img:hover{
+  transform: scale(1.02);
+}
   aspect-ratio:16 / 10;
   object-fit:cover;
   border-radius:var(--radius);
