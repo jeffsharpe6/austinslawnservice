@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-carousel]').forEach((carousel) => {
     const track = carousel.querySelector('.carousel__track');
     const slides = Array.from(carousel.querySelectorAll('.carousel__slide'));
-    const prev = carousel.querySelector('.carousel__button--prev');
-    const next = carousel.querySelector('.carousel__button--next');
     const dotsWrap = carousel.querySelector('.carousel__dots');
     if (!track || slides.length === 0) return;
 
@@ -39,16 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (intervalId) clearInterval(intervalId);
       intervalId = setInterval(() => go(1), 4500);
     }
-
-    prev?.addEventListener('click', () => {
-      go(-1);
-      restartAuto();
-    });
-
-    next?.addEventListener('click', () => {
-      go(1);
-      restartAuto();
-    });
 
     carousel.addEventListener('mouseenter', () => intervalId && clearInterval(intervalId));
     carousel.addEventListener('mouseleave', restartAuto);
