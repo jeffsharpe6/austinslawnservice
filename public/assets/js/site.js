@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let index = 0;
     let intervalId = null;
+    let touchStartX = 0;
+    let touchStartY = 0;
 
     slides.forEach((_, i) => {
       const dot = document.createElement('button');
@@ -36,6 +38,32 @@ document.addEventListener('DOMContentLoaded', () => {
     function restartAuto() {
       if (intervalId) clearInterval(intervalId);
       intervalId = setInterval(() => go(1), 4500);
+    }
+
+    function handleTouchStart(event) {
+      const touch = event.changedTouches[0];
+      touchStartX = touch.clientX;
+      touchStartY = touch.clientY;
+      if (intervalId) clearInterval(intervalId);
+    }
+
+    function handleTouchEnd(event) {
+      const touch = event.changedTouches[0];
+      const diffX = touch.clientX - touchStartX;
+      const diffY = touch.clientY - touchStartY;
+      const swipeThreshold = Math.max(40, carousel.offsetWidth * 0.12);
+
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > swipeThreshold) {
+        go(diffX < 0 ? 1 : -1);
+      }
+
+      restartAuto();
+    }
+
+    if (window.matchMedia('(any-pointer: coarse)').matches) {
+      carousel.addEventListener('touchstart', handleTouchStart, { passive: true });
+      carousel.addEventListener('touchend', handleTouchEnd, { passive: true });
+      carousel.addEventListener('touchcancel', restartAuto, { passive: true });
     }
 
     carousel.addEventListener('mouseenter', () => intervalId && clearInterval(intervalId));

@@ -146,6 +146,7 @@ a{color:inherit}
   z-index:0;
   overflow:hidden;
   border-radius:var(--radius);
+  touch-action:pan-y;
 }
 .carousel__track{
   display:flex;
