@@ -268,8 +268,6 @@ a{color:inherit}
   .hero-copy h1,.privacy-card h1{font-size:1.65rem}
   .section{padding:12px 0}
   .carousel__button{
-    width:38px;
-    height:38px;
-    font-size:1.2rem;
+    display:none;
   }
 }
